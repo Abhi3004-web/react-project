@@ -1,0 +1,17 @@
+.todoheading {
+  font-weight: 750;
+  margin: 25px 10px;
+  color: blue;
+}
+
+.container-todo {
+  margin: 10px;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  min-width: 80px;
+}

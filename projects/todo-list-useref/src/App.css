@@ -1,0 +1,19 @@
+.main-container {
+  margin: 1%;
+  border: 1px solid #6a6969;
+  width: 98%;
+}
+
+.todo-row {
+  margin: 10px 5px;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin: 0px 5px !important;
+}
+
+button {
+  min-width: 80px;
+}
