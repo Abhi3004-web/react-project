@@ -12,6 +12,7 @@ const Update = () => {
     const { name, email } = filterUserDetails[0];
     const [newName, setNewName] = useState(name);
     const [newEmail, setNewEmail] = useState(email);
+
     const updateData = (e) => {
         e.preventDefault();
         dispatch(updateUser({ id: id, name: newName, email: newEmail }))

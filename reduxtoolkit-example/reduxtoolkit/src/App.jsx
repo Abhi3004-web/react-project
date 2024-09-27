@@ -8,8 +8,6 @@ import Create from './Create'
 import Update from './Update'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
       <Routes>

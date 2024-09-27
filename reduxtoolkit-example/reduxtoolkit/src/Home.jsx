@@ -35,8 +35,6 @@ const Home = () => {
                             </td>
                         </tr>
                     ))}
-
-
                 </tbody>
             </table> : <p>Data is not found</p>}
         </div>
