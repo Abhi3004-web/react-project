@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     res.send("Hello first Introduction");
 })
 
-// Route to handle POST requests
+// Insert records by POST method from external file. We get request and save records in MongoDB
 app.post('/addData', async (req, res) => {
     try {
         const { name, age, address, gender } = req.body;
@@ -37,28 +37,67 @@ app.post('/addData', async (req, res) => {
     }
 });
 
-
-
-app.get("/create", async (req, res) => {
-    const userData = await userModel.create({
-        name: "Abhijit",
-        age: 29,
-        address: "Delhi",
-        gender: "Male"
-    })
-    res.send(userData);
-})
-
+// to fetch all the records from MongoDB
 app.get("/allRecords", async (req, res) => {
     const allData = await userModel.find();
-    res.send(allData);
+    res.json(allData);
 })
 
-app.get("/update", async (req, res) => {
-    const updatedUserData = await userModel.findOneAndUpdate({
-        name: "Abhijit"
-    }, { name: "Ravi" }, { new: true });
-    res.send(updatedUserData);
+// API endpoint to update a record by ID
+app.put('/update/:id', async (req, res) => {
+    const { id } = req.params;
+    const { name, age, address, gender } = req.body;
+
+    try {
+        const updatedRecord = await userModel.findByIdAndUpdate(
+            id,
+            { name, age, address, gender },
+            { new: true }  // Returns the updated document
+        );
+
+        if (!updatedRecord) {
+            return res.status(404).json({ message: 'Record not found' });
+        }
+
+        res.json(updatedRecord);  // Send the updated record back to the client
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// API endpoint to update a record by ID
+app.get('/update/:id', async (req, res) => {
+    const { id } = req.params;
+    const { name, age, address, gender } = req.body;
+
+    try {
+        const updatedRecord = await userModel.findByIdAndUpdate(
+            id,
+            { name, age, address, gender },
+            { new: true }  // Returns the updated document
+        );
+
+        if (!updatedRecord) {
+            return res.status(404).json({ message: 'Record not found' });
+        }
+
+        res.json(updatedRecord);  // Send the updated record back to the client
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// record delete from MongoDB
+
+app.delete("/delete/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        await userModel.findByIdAndDelete(id);
+        res.status(200).json({ message: 'Record deleted successfully' });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 })
 
 app.listen(PORT, () => {
