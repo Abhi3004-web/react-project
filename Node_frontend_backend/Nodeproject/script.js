@@ -1,4 +1,5 @@
 const fs = require("fs");
+const os = require("os");
 
 // File write
 // fs.writeFile("hello.txt", "My name is Abhijit Ranjan", (err) => {
@@ -34,7 +35,7 @@ const fs = require("fs");
 //     else console.log("file deleted");
 // });
 
-// delete empty directory 
+// delete empty directory
 
 // fs.rmdir("src", { recursive: true }, (err) => {
 //     if (err) console.log(err);
@@ -43,4 +44,6 @@ const fs = require("fs");
 
 // read files
 
-fs.read()
+console.log(os.cpus().length);
+
+
