@@ -6,6 +6,7 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0);
   const [num, setNum] = useState(0);
+  const [inputVal, setInputVal] = useState("");
   const [details, setDetails] = useState({
     name: '',
     age: 0,
@@ -29,6 +30,8 @@ function App() {
 
   return (
     <>
+      <input value={inputVal} onChange={(e) => setInputVal(e.target.value)}></input>
+      <p>you are typing-- {inputVal}</p>
       <h1>Counter : {count}</h1>
       <button onClick={() => setCount(count + 1)}>click me</button>
 
