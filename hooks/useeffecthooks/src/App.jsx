@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import TableData from './TableData'
+import User from './user'
+import FilterData from './FilterData'
+import Custome from './custome'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -36,8 +39,7 @@ function App() {
     return () => {
       console.log('6')
     }
-  }, [count]
-  )
+  }, [count])
 
   return (
     <>
@@ -46,6 +48,9 @@ function App() {
       <button onClick={() => setCount(count + 1)}>click me</button>
       {/* <button onClick={() => setcountFive(count + 5)}>click Five</button> */}
       <TableData></TableData>
+      <User></User>
+      <FilterData></FilterData>
+      <Custome></Custome>
     </>
   )
 }

@@ -1,25 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { createContext } from 'react'
-export let data = createContext();
+import ChildA from './ChildA';
+import { UserContext } from './Context/UserContext';
+import { TheamContext } from './Context/TheamContext';
+import { useState } from 'react';
+
 function App() {
 
-  const [count, setCount] = useState(0);
-  const [countArr, setCountArr] = useState([]);
-  const handleClickMe = () => {
+  const [data, setData] = useState({
+    Name: ["Abhijit"],
+    City: ["Delhi"]
+  });
 
-    setCount((count) => count + 1);
-    countArr.push(count);
+  const setValue = (value, city) => {
+    setData((prev) => ({
+
+      Name: [...prev.Name, value],
+      City: [...prev.City, city]
+    })
+    )
   }
+  const theme = "Red"
+
   return (
     <>
-      <data.Provider>
-        <p>Count : {count}</p>
-        <p>Arr : {countArr}</p>
-        <button onClick={handleClickMe}>click me</button>
-      </data.Provider>
+      <UserContext.Provider value={[data, setValue]}>
+        <TheamContext.Provider value={theme}>
+          <ChildA></ChildA>
+        </TheamContext.Provider>
+      </UserContext.Provider>
     </>
   )
 }

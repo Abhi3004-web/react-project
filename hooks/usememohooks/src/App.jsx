@@ -1,39 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useMemo } from 'react'
 import './App.css'
-import { useMemo } from 'react'
+import Child from './Child';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [inputValue, setInputValue] = useState('');
-  //const calculation = expensiveCal(count);
-
-  const calculation = useMemo(() => {
-    return expensiveCal(count);
+  const [minus, setMinus] = useState(100);
+  let heavyCal = useMemo(() => {
+    console.log("heavy calculation");
+    let result = 0;
+    for (let i = 0; i < 1000000; i++) {
+      result += i;
+    }
+    return result + count;
   }, [count])
-
-  function expensiveCal(num) {
-    console.log("start calculation");
-    for (let index = 0; index < 1000000; index++) { }
-    return num;
-  }
-  test1();
-  function test1() {
-    console.log("hello");
-  }
   return (
     <>
-      <input type="number" onChange={() => setCount(count + 1)}></input>
-      <h1>Calculation : {calculation}</h1>
-
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Type something"
-      />
-      <p>Input Value: {inputValue}</p>
+      <p>heavy calculation : {heavyCal}</p>
+      <button onClick={() => setCount(count + 1)}>Addition</button> : {count}
+      <button onClick={() => setMinus(minus - 1)}>Minus</button> : {minus}
+      <Child data={heavyCal}></Child>
     </>
   )
 }
