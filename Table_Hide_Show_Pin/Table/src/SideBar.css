@@ -1,0 +1,91 @@
+/* App.css */
+.App {
+    font-family: Arial, sans-serif;
+    display: flex;
+    transition: margin-left 0.3s ease;
+    /* Smooth transition for the content */
+}
+
+.toggle-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    /* Ensure button stays above the sidebar */
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    /* Fix the sidebar in place */
+    top: 0;
+    left: -250px;
+    /* Hide sidebar off-screen */
+    transition: left 0.3s ease;
+    /* Smooth transition */
+    padding: 20px;
+    z-index: 999;
+    /* Ensure sidebar stays above the content */
+}
+
+.sidebar.open {
+    left: 0;
+    /* Slide in the sidebar */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    color: #fff;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    cursor: pointer;
+    color: #ddd;
+}
+
+.sidebar ul li:hover {
+    color: #fff;
+}
+
+.content {
+    margin-left: 0;
+    /* Start with no margin */
+    padding: 20px;
+    flex-grow: 1;
+    /* Take up the remaining space */
+    transition: margin-left 0.3s ease;
+    /* Smooth transition when sidebar opens */
+}
+
+.content.sidebar-open {
+    margin-left: 250px;
+    /* Adjust margin when sidebar is open */
+}
+
+@media (max-width: 768px) {
+
+    /* Make sidebar responsive for smaller screens */
+    .sidebar {
+        width: 200px;
+        left: -200px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+}

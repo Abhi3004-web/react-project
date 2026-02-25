@@ -8,14 +8,11 @@ const TableData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://fakestoreapi.com/products');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const result = await response.json();
-                setData(result);
-            } catch (error) {
-                setError(error);
+                await fetch('https://fakestoreapi.com/products')
+                    .then((response) => response.json())
+                    .then((data) => setData(data));
+            } catch (err) {
+                setError(err);
             } finally {
                 setLoading(false);
             }
@@ -27,6 +24,7 @@ const TableData = () => {
     if (error) return <div>Error: {error.message}</div>;
 
     return (
+
         <div>
             <h1 style={{ textAlign: 'center' }}>Shopping Cart Details</h1>
             <br />
@@ -35,7 +33,7 @@ const TableData = () => {
 
                     {data.map((item) => (
                         <div key={item.id} className="col" style={{ width: '18rem', border: '1px solid #d2d2d2', padding: '10px', margin: '5px' }}>
-                            <img src={item.image} className="card-img-top" alt={item.title} />
+                            <img src={item.image} className="card-img-top" alt={item.title} style={{ width: '250px', height: '260px' }} />
                             <div className="card-body">
                                 <p className="card-text">{item.rating.rate}</p>
                                 <h5 className="card-title">{item.title}</h5>
