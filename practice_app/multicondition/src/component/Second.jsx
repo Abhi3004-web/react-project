@@ -4,6 +4,7 @@ function Second() {
         let data = document.getElementById("Name").value;
         console.log(data);
     }
+    const test = "<h1>Hello.....................................</h1>";
     return (
         <>
             <form method="get">
@@ -14,6 +15,7 @@ function Second() {
                 Email1 : <input type="text" ></input>
                 <br />
                 <button type="submit" onClick={handleSubmit}>submit</button>
+                <div dangerouslySetInnerHTML={{ __html: test }} />
             </form>
         </>
     )
