@@ -1,0 +1,9 @@
+.shared-btn {
+    background-color: aquamarine;
+    border: 1px solid #000;
+    color: #000;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}

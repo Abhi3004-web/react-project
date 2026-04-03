@@ -8,6 +8,11 @@ padding:5px;
 const Role = styled.p`
 background-color:${({ role }) => role === "Admin" ? "red" : role === "SubAdmin" ? "green" : "blue"};
 `;
+const Div = styled.div({
+    color: "red",
+    backgroundColor: "#f5f5f5",
+    fontSize: "20px"
+})
 
 function Layout({ data, card }) {
     return (
@@ -21,6 +26,7 @@ function Layout({ data, card }) {
                     </div>
                 </div>))}
             <Heading>hello styled component</Heading>
+            <Div>My name is Abhijit Ranjan</Div>
 
         </>
     )
