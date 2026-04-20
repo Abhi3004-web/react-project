@@ -28,7 +28,7 @@ ES modules
 Fast dev server
 HMR (Hot Module Replacement)
 ## 6. pnpm install - run this commnad 
-## 7. inside Host folder - pnpm install @originjs/vite-plugin-federation
+## 7. inside Host/Remote folder - pnpm install @originjs/vite-plugin-federation
 This command adds the Module Federation plugin for Vite to your project using pnpm.
 Breakdown
 
