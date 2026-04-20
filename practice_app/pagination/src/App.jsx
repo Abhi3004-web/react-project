@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { count } from './data'
 import './App.css'
 import ElippsisPagination from './ElippsisPagination';
+import TempDataList from './TempDataList';
 
 function App() {
   const [pages, setPages] = useState(1);
@@ -53,6 +54,7 @@ function App() {
       <button onClick={() => setPages((prevpage) => prevpage + 1)} disabled={pages === totalPage}>right</button>
       <br />
       <ElippsisPagination />
+      <TempDataList />
     </>
   )
 }

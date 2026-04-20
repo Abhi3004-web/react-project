@@ -8,7 +8,9 @@ function Test() {
     const handleChange = (e) => {
         let value = e.target.value;
         setInput(value);
-        startTransition(() => {
+        startTransition(async () => {
+           
+            await new Promise(res => setTimeout(res, 2000));
             const filterData = data.filter(item => item.toLowerCase().includes(value.toLowerCase()));
             setList(filterData);
         })
