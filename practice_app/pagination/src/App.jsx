@@ -3,6 +3,8 @@ import { count } from './data'
 import './App.css'
 import ElippsisPagination from './ElippsisPagination';
 import TempDataList from './TempDataList';
+import AGGridData from './AGGridData';
+import Virtualization from './Virtualization';
 
 function App() {
   const [pages, setPages] = useState(1);
@@ -55,6 +57,10 @@ function App() {
       <br />
       <ElippsisPagination />
       <TempDataList />
+      <AGGridData />
+      <div style={{ marginTop: "400px", border: "1px solid #000", width: 420 }}>
+        <Virtualization data={count} />
+      </div>
     </>
   )
 }
