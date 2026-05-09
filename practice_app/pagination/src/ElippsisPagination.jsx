@@ -41,7 +41,7 @@ function ElippsisPagination() {
 
     return (
         <>
-            <h1>New Pagination Idea</h1>
+            <h1>New Pagination Idea with Elippsis</h1>
             <table cellPadding={3} cellSpacing={5} border={2}>
                 <thead>
                     <tr>

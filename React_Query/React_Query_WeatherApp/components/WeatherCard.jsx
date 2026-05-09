@@ -1,14 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Weather_Api } from "../Api/Weather_Api";
+
 function WeatherCard({ city }) {
-    const { data, isFetched, isLoading, error } = useQuery({
+    const queryClient = useQueryClient();
+    const { isLoading, error, data } = useQuery({
         queryKey: ["weather", city],
         queryFn: () => Weather_Api(city),
         enabled: !!city, // only run when city exists
         staleTime: 300000, // 5 min cache
     });
-    console.log("Cached Data:", data);
-    console.log(isFetched, isLoading);
+    
     if (!city) return <p>Search for a city</p>;
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>{error.message}</p>;

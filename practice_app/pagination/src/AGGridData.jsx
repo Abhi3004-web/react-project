@@ -25,12 +25,12 @@ function AGGridData() {
             <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
                 <AgGridReact rowData={count} columnDefs={columnDefs} pagination={true}
                     paginationPageSize={5} />
-                <AgGridReact
+                {/* <AgGridReact
                     columnDefs={columnDefs}
                     rowModelType="infinite"
                     datasource={dataSource}
                     cacheBlockSize={10}
-                />
+                /> */}
             </div>
         </>
     )

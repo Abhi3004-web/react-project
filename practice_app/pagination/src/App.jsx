@@ -16,6 +16,7 @@ function App() {
 
   return (
     <>
+      <h3>Normal Pagination Idea</h3>
       <table cellPadding={3} cellSpacing={5} border={2}>
         <thead>
           <tr>
