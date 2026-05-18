@@ -6,7 +6,13 @@ module.exports = {
     entry: './src/index.js',
     mode: 'development',
     devServer: {
-        static: path.join(__dirname, 'dist'),
+        static: {
+            directory: path.join(__dirname, 'public'),
+            publicPath: '/',
+        },
+        headers: {
+            'Cache-Control': 'no-store',
+        },
         port: 3002,
     },
     output: {
@@ -21,6 +27,10 @@ module.exports = {
                 options: {
                     presets: ['@babel/preset-env', '@babel/preset-react'],
                 },
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
             },
         ],
     },
