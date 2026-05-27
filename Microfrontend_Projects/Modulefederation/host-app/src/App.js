@@ -1,6 +1,7 @@
 import React, { Suspense, useState } from 'react';
 
 const RemoteApp = React.lazy(() => import('app2/App'));
+const RemoteApp1 = React.lazy(() => import('app3/Remote_App1'));
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -25,6 +26,7 @@ export default function App() {
 
       <Suspense fallback="Loading...">
         <RemoteApp cartItems={cartItems} addToCart={addToCart} />
+        <RemoteApp1 />
       </Suspense>
     </div>
   );

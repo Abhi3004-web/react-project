@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkremote_app1=self.webpackChunkremote_app1||[]).push([[709],{253(e,t,n){var r=n(307);const o=function(){return r.createElement(r.Fragment,null,"Remote App 1")};(0,n(338).createRoot)(document.getElementById("root")).render(r.createElement(o,null))}}]);

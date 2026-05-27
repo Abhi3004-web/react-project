@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkremote_app1=self.webpackChunkremote_app1||[]).push([[472],{472(e,t,n){n.r(t),n.d(t,{default:()=>r});var p=n(307);const r=function(){return p.createElement(p.Fragment,null,"Remote App 1")}}}]);

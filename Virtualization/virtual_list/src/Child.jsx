@@ -18,7 +18,7 @@ function Child() {
     return (
         <>
             <List
-                height={300}
+                height={350}
                 width={300}
                 itemSize={35}
                 itemCount={employees.length}
