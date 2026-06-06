@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { count } from './data'
 import './App.css'
 import ElippsisPagination from './ElippsisPagination';
+import TempDataList from './TempDataList';
+import AGGridData from './AGGridData';
+import Virtualization from './Virtualization';
 
 function App() {
   const [pages, setPages] = useState(1);
@@ -13,6 +16,7 @@ function App() {
 
   return (
     <>
+      <h3>Normal Pagination Idea</h3>
       <table cellPadding={3} cellSpacing={5} border={2}>
         <thead>
           <tr>
@@ -53,6 +57,11 @@ function App() {
       <button onClick={() => setPages((prevpage) => prevpage + 1)} disabled={pages === totalPage}>right</button>
       <br />
       <ElippsisPagination />
+      <TempDataList />
+      <AGGridData />
+      <div style={{ marginTop: "400px", border: "1px solid #000", width: 420 }}>
+        <Virtualization data={count} />
+      </div>
     </>
   )
 }
